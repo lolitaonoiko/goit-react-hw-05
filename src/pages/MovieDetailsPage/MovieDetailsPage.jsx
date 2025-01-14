@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovieById } from "../../services/api";
 
@@ -9,6 +9,8 @@ const MovieDetailsPage = () => {
   const [itemInfo, setItemInfo] = useState(null);
 
   const IMG_NAME_PART = "https://image.tmdb.org/t/p/w500/";
+
+  const goBackLink = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     const itemById = async () => {
@@ -25,7 +27,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <Link to={location.state ?? "/movies"}>Go back</Link>
+      <Link to={goBackLink.current}>Go back</Link>
       <div>
         <img src={`${IMG_NAME_PART}${itemInfo.poster_path}`} alt="Film image" />
       </div>
