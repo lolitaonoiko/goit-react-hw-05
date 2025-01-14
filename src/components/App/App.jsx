@@ -1,7 +1,7 @@
-import "./App.css";
-
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
+
+import style from "./App.module.css";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const MoviesPage = lazy(() => import("../../pages/MoviesPage/MoviesPage"));
@@ -18,7 +18,7 @@ const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
 function App() {
   return (
     <>
-      <Suspense fallback={<p>Loading page...</p>}>
+      <Suspense fallback={<p className={style.susp}>Loading page...</p>}>
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />

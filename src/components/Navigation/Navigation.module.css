@@ -1,0 +1,21 @@
+.header {
+  position: absolute;
+  width: 100vw;
+  background-color: rgb(81, 106, 114);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  padding-left: 0;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.link {
+  font-size: 20px;
+  font-weight: 700;
+}
+.link[aria-current="page"] {
+  color: rgb(49, 49, 101);
+}

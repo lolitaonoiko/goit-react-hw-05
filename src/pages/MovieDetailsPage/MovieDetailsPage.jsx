@@ -1,6 +1,8 @@
 import { Suspense, useEffect, useRef, useState } from "react";
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovieById } from "../../services/api";
+
+import style from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const location = useLocation();
@@ -22,30 +24,41 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   if (!itemInfo) {
-    return <p>Please wait...</p>;
+    return <p className={style.load}>Please wait...</p>;
   }
 
   return (
-    <div>
-      <Link to={goBackLink.current}>Go back</Link>
-      <div>
-        <img src={`${IMG_NAME_PART}${itemInfo.poster_path}`} alt="Film image" />
+    <div className={style.sectionBox}>
+      <NavLink to={goBackLink.current} className={style.btnBack}>
+        ⇦ Go back
+      </NavLink>
+      <div className={style.infoBox}>
+        <img
+          src={`${IMG_NAME_PART}${itemInfo.poster_path}`}
+          alt="Film image"
+          className={style.image}
+        />
+
+        <div>
+          <h2>{itemInfo.title}</h2>
+          <p>{`User score: ${itemInfo.vote_average}`}</p>
+
+          <h3>Overview</h3>
+          <p>{itemInfo.overview}</p>
+
+          <h4>Genres</h4>
+          <p>{itemInfo.genres.map((item) => item.name).join(" ")}</p>
+        </div>
       </div>
-
-      <div>
-        <h2>{itemInfo.title}</h2>
-        <p>{`User score: ${itemInfo.vote_average}`}</p>
-
-        <h3>Overview</h3>
-        <p>{itemInfo.overview}</p>
-
-        <h4>Genres</h4>
-        <p>{itemInfo.genres.map((item) => item.name).join(" ")}</p>
+      <div className={style.detLinks}>
+        <NavLink to="cast" className={style.details}>
+          Cast
+        </NavLink>
+        <NavLink to="reviews" className={style.details}>
+          Reviews
+        </NavLink>
       </div>
-
-      <Link to="cast">Cast</Link>
-      <Link to="reviews">Reviews</Link>
-      <Suspense fallback={<p>Loading page...</p>}>
+      <Suspense fallback={<p className={style.load}>Loading page...</p>}>
         <Outlet />
       </Suspense>
     </div>

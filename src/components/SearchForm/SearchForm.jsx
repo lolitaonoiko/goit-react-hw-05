@@ -1,5 +1,7 @@
 import { Formik, Field, Form } from "formik";
 
+import style from "./SearchForm.module.css";
+
 const SearchForm = ({ queryHandle, query }) => {
   const handleSubmit = (values) => {
     queryHandle(values.query);
@@ -11,8 +13,8 @@ const SearchForm = ({ queryHandle, query }) => {
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      <Form>
-        <Field type="text" name="query" />
+      <Form className={style.formik}>
+        <Field type="text" name="query" className={style.inpt} />
         <button type="submit">Search</button>
       </Form>
     </Formik>

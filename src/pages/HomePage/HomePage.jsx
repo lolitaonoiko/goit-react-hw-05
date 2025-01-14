@@ -3,6 +3,8 @@ import { fetchMovies } from "../../services/api";
 
 import MovieList from "../../components/MovieList/MovieList";
 
+import style from "./HomePage.module.css";
+
 const HomePage = () => {
   const [data, setData] = useState(null);
 
@@ -15,12 +17,12 @@ const HomePage = () => {
   }, []);
 
   if (!data) {
-    return <p>Loading...</p>;
+    return <p className={style.load}>Loading...</p>;
   }
 
   return (
-    <div>
-      <h1>Trending today</h1>
+    <div className={style.box}>
+      <h2 className={style.title}>Trending today</h2>
 
       <MovieList data={data} />
     </div>

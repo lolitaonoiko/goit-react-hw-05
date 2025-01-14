@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { fetchCastById } from "../../services/api";
 import { useParams } from "react-router-dom";
 
+import style from "./MovieCast.module.css";
+
 const MovieCast = () => {
   const [casts, setCasts] = useState(null);
   const { movieId } = useParams();
@@ -24,13 +26,19 @@ const MovieCast = () => {
   }
 
   return (
-    <ul>
+    <ul className={style.list}>
       {casts.map((cast) => (
-        <li key={cast.id}>
-          <div>
-            <img src={`${IMG_NAME_PART}${cast.profile_path}`} />
+        <li key={cast.id} className={style.listIt}>
+          <div className={style.listItem}>
+            <img
+              src={`${IMG_NAME_PART}${cast.profile_path}`}
+              className={style.image}
+            />
             <b>{cast.name}</b>
-            <p>{cast.character}</p>
+            <p className={style.charac}>
+              Character:
+              {cast.character}
+            </p>
           </div>
         </li>
       ))}

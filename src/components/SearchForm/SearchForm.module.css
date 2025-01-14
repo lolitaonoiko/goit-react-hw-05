@@ -1,0 +1,15 @@
+.formik {
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.inpt {
+  border: 1px solid gray;
+  border-radius: 4px;
+
+  outline: transparent;
+  padding: 7px;
+  width: 350px;
+}

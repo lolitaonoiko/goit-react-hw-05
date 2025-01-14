@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 
+import style from "./NotFoundPage.module.css";
+
 const NotFoundPage = () => {
   return (
-    <div>
-      <h2>Oops... Something went wrong.. 😬</h2>
+    <div className={style.err}>
+      <h2 className={style.title}>Oops... This page does not exist.. </h2>
       <Link to="/">
         <button>Home</button>
       </Link>

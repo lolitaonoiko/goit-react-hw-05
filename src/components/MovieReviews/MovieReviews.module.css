@@ -1,0 +1,6 @@
+.text {
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: rgb(202, 209, 215);
+}

@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 300px;
+}
+.image {
+  width: 300px;
+}
+.charac {
+  margin: 0;
+  word-wrap: break-word;
+}
+.listIt {
+  margin-bottom: 35px;
+}
