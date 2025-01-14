@@ -25,7 +25,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <Link to={location.state}>Go back</Link>
+      <Link to={location.state ?? "/movies"}>Go back</Link>
       <div>
         <img src={`${IMG_NAME_PART}${itemInfo.poster_path}`} alt="Film image" />
       </div>
