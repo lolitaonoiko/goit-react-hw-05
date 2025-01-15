@@ -36,14 +36,10 @@ const MoviesPage = () => {
     setSearchParams({ query });
   };
 
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(queryInpt.toLowerCase())
-  );
-
   return (
     <>
       <SearchForm queryHandle={queryHandle} query={queryInpt} />
-      <MovieList data={filteredMovies} />
+      <MovieList data={movies} />
     </>
   );
 };
